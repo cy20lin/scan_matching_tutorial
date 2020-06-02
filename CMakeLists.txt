@@ -14,3 +14,4 @@ add_library(scan_matching_libs src/csv_reader.cpp)
 
 add_executable(01_eigen_tester apps/01_eigen_tester.cpp)
 add_executable(02_csv_points_rotation apps/02_csv_points_rotation.cpp)
+target_link_libraries(02_csv_points_rotation scan_matching_libs)
