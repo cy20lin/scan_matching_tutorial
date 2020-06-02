@@ -9,16 +9,8 @@ bool readPointsFromCsv(std::string const & csv_file_path, Eigen::MatrixX2d & poi
     std::string line;
     std::string x, y;
     bool is_header_valid;
-    is_header_valid = std::getline(file, line).operator bool();
-    if (!is_header_valid) {
-        return false;
-    }
-    std::stringstream ss(line);
-    is_header_valid = std::getline(ss, x, ',') && std::getline(ss, y, ',') && (x == "x" && y == "y");
-    if (!is_header_valid) {
-        return false;
-    }
     int i = 0;
+    std::getline(file, line);
     while (std::getline(file, line)) {
         std::stringstream ss(line);
         if (std::getline(ss, x, ',') && std::getline(ss, y, ',')) {
