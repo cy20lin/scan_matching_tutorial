@@ -3,8 +3,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-before_csv = '../data/rectangle_points10.csv'
-after_csv = '../data/rectangle_points10_rotated.csv'
+before_csv = './data/rectangle_points10.csv'
+after_csv = './data/rectangle_points10_rotated.csv'
 
 # with open(before_csv, newline='') as csvfile:
 #     rows = csv.reader(csvfile)
