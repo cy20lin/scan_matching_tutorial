@@ -32,3 +32,26 @@ std::vector<std::array<int, 2>> nearestNeighborIndics( const Eigen::MatrixX3d &P
     }
     return result;
 }
+
+double icpEvaluateError(
+    const Eigen::MatrixX3d &P, const Eigen::MatrixX3d &Q, 
+    const std::vector<std::array<int, 2>> & I
+) {
+  double error = 0;
+  if (!I.size())
+    return 0;
+  for (auto pair : I) {
+    auto i = pair[0];
+    auto j = pair[1];
+    double px = P(i, 0);
+    double py = P(i, 1);
+    double qx = Q(j, 0);
+    double qy = Q(j, 1);
+    double dx = px - qx;
+    double dy = py - qy;
+    double distance_square = dx * dx + dy * dy;
+    error += distance_square;
+  }
+  error /= I.size();
+  return error;
+}

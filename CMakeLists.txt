@@ -19,3 +19,8 @@ target_link_libraries(02_csv_points_rotation scan_matching_libs)
 add_executable(03_icp_nearest_neighbor apps/03_icp_nearest_neighbor.cpp)
 target_link_libraries(03_icp_nearest_neighbor scan_matching_libs)
 
+add_executable(04_icp_evaluate_error apps/04_icp_evaluate_error.cpp)
+target_link_libraries(04_icp_evaluate_error scan_matching_libs)
+
+add_executable(00_icp apps/00_icp.cpp)
+target_link_libraries(00_icp scan_matching_libs Eigen3::Eigen)

@@ -42,25 +42,24 @@ int main(int argc, char **argv) {
     std::cout << std::endl;
 
     auto & P = input_points;
-    std::cout << (&P == &input_points);
     auto & Q = rotated_points;
     {
-        std::cout << "nearestNeighborIndics(P, P)" << std::endl;
+        std::cout << "icpEvaluateError(P, P, I) = " ;
         auto pairs = nearestNeighborIndics(P, P);
-        printIndicsPair(pairs);
-        std::cout << std::endl;
+        double error = icpEvaluateError(P, P, pairs);
+        std::cout << error << std::endl;
     }
     {
-        std::cout << "nearestNeighborIndics(Q, Q)" << std::endl;
+        std::cout << "icpEvaluateError(Q, Q, I) = " ;
         auto pairs = nearestNeighborIndics(Q, Q);
-        printIndicsPair(pairs);
-        std::cout << std::endl;
+        double error = icpEvaluateError(Q, Q, pairs);
+        std::cout << error << std::endl;
     }
     {
-        std::cout << "nearestNeighborIndics(P, Q)" << std::endl;
+        std::cout << "icpEvaluateError(P, Q, I) = " ;
         auto pairs = nearestNeighborIndics(P, Q);
-        printIndicsPair(pairs);
-        std::cout << std::endl;
+        double error = icpEvaluateError(P, Q, pairs);
+        std::cout << error << std::endl;
     }
     return 0;
 }
